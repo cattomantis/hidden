@@ -36,8 +36,11 @@ jobs:
       - name: Install correct Bundler version
         run: gem install bundler:2.5.9
 
+      - name: Set Gemfile path
+        run: echo "BUNDLE_GEMFILE=${{ github.workspace }}/docs/Gemfile" >> $GITHUB_ENV
+
       - name: Install Jekyll
-        run: gem install jekyll
+        run: gem install jekyll -v 4.3.3
 
       - name: Install dependencies
         working-directory: docs
