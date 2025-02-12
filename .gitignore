@@ -1,0 +1,20 @@
+#### `.gitignore`
+```gitignore
+# Python general
+__pycache__/
+*.pyc
+*.pyo
+
+# Poetry
+.poetry/
+*.lock
+
+# Docker
+*.log
+docker-compose.override.yml
+
+# Jekyll build
+_site/
+
+# OS files
+.DS_Store
