@@ -28,9 +28,10 @@ services:
 
   docs:
     image: jekyll/jekyll:latest
-    container_name: meow-docs  # Updated docs container name
+    container_name: meow_docs
     volumes:
-      - ./docs:/srv/jekyll
+    - ./docs:/srv/jekyll
+    - ./docs/Gemfile:/srv/jekyll/Gemfile
     ports:
       - "4000:4000"
     command: ["jekyll", "serve", "--watch", "--drafts"]
