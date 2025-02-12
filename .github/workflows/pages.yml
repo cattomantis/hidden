@@ -1,0 +1,44 @@
+name: GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.0'  # or whichever version you prefer
+          bundler-cache: true
+
+      - name: Install dependencies
+        working-directory: docs
+        run: bundle install --jobs 4 --retry 3
+
+      - name: Build site with Jekyll
+        working-directory: docs
+        run: bundle exec jekyll build
+
+      - name: Upload artifact for deployment
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: docs/_site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download artifact
+        uses: actions/download-pages-artifact@v1
+
+      - name: Deploy to GitHub Pages
+        id: deploy-pages
+        uses: actions/deploy-pages@v1
