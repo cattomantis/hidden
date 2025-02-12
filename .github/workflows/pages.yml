@@ -23,7 +23,7 @@ jobs:
       - name: Build Site
         run: |
           cd docs
-          JEKYLL_ENV=production bundle exec jekyll build --destination ../_site
+          JEKYLL_ENV=production bundle exec jekyll build --skip-posts --destination _site
 
       - name: Upload Artifact
         uses: actions/upload-pages-artifact@v3

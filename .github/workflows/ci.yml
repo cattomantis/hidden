@@ -26,4 +26,4 @@ jobs:
       - name: Build Jekyll site
         run: |
           cd docs  # Ensure build happens in the correct folder
-          bundle exec jekyll build --destination ../_site # Output outside docs/
+          bundle exec jekyll build --skip-posts --destination _site
