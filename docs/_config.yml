@@ -6,8 +6,6 @@ theme: just-the-docs
 url: "https://cattomantis.github.io/hidden/"
 baseurl: "/hidden"
 
-destination: ../_site
-
 aux_links:
   Template Repository: https://github.com/just-the-docs/just-the-docs-template
 

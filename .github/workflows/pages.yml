@@ -19,6 +19,9 @@ jobs:
           ruby-version: '3.0'  # or whichever version you prefer
           bundler-cache: true
 
+      - name: Update Bundler
+        run: gem install bundler:2.5.9
+
       - name: Install dependencies
         working-directory: docs
         run: bundle install --jobs 4 --retry 3
