@@ -1,0 +1,3 @@
+[submodule "submodules/coconut"]
+	path = submodules/coconut
+	url = https://github.com/facebookresearch/coconut.git

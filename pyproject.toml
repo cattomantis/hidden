@@ -1,0 +1,28 @@
+[tool.poetry]
+name = "meow-project"  # Changed project name here
+version = "0.1.0"
+description = "A template for an LLM-based project with Docker and Jekyll"
+authors = ["Your Name <your.email@example.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.12"
+huggingface_hub = "*"
+transformers = "*"
+gradio = "*"
+bitsandbytes = "*"
+accelerate = "*"
+peft = "*"
+datasets = "*"
+pytorch_metric_learning = "*"
+lightning = "*"
+sentence_transformers = "*"
+ipykernel = "*"
+jupyter = "*"
+plotly = "*"  # Corrected plotly typo
+
+[tool.poetry.dev-dependencies]
+docker = "^5.0"  # Optional, for handling Docker builds within Poetry if needed
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

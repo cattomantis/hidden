@@ -1,0 +1,7 @@
+title: Project Documentation
+description: Documentation Website
+theme: just-the-docs
+
+# Enable GitHub Pages compatibility
+url: "https://cattomantis.github.io/hidden"
+baseurl: "/hidden"
