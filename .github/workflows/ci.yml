@@ -21,18 +21,24 @@ jobs:
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.3' # Not needed with a .ruby-version file
+          ruby-version: '3' # Not needed with a .ruby-version file
           bundler-cache: true # runs 'bundle install' and caches installed gems automatically
           cache-version: 0 # Increment this number if you need to re-download cached gems
 
-      - name: Update Bundler
+      - name: Get Bundler version 2.5.9
         run: gem install bundler:2.5.9
+
+      - name: Get Bundler version 2.4.21
+        run: gem install bundler:2.4.21
 
       - name: Set Gemfile path
         run: echo "BUNDLE_GEMFILE=${{ github.workspace }}/docs/Gemfile" >> $GITHUB_ENV
 
-      - name: Install Jekyll
-        run: gem install jekyll -v 4.3.3
+      - name: Install Jekyll version 4.4.1
+        run: gem install jekyll -v 4.4.1
+
+      - name: Install Jekyll version 4.3.2
+        run: gem install jekyll -v 4.3.2
 
       - name: Install dependencies
         working-directory: docs

@@ -29,7 +29,7 @@ jobs:
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.3'
+          ruby-version: '3'
           bundler-cache: true
           cachce-version: 0
 
@@ -39,8 +39,11 @@ jobs:
       - name: Set Gemfile path
         run: echo "BUNDLE_GEMFILE=${{ github.workspace }}/docs/Gemfile" >> $GITHUB_ENV
 
-      - name: Install Jekyll
-        run: gem install jekyll -v 4.3.3
+      - name: Install Jekyll version 4.4.1
+        run: gem install jekyll -v 4.4.1
+        
+      - name: Install Jekyll version 4.3.2
+        run: gem install jekyll -v 4.3.2
 
       - name: Install dependencies
         working-directory: docs
