@@ -1,5 +1,5 @@
 source "https://rubygems.org"
 
-gem "github-pages", group: :jekyll_plugins  # Ensures compatibility
-gem "webrick"  # Required for local testing
-gem "just-the-docs", "0.10.1" # Keep your theme version
+gem "github-pages", group: :jekyll_plugins
+gem "webrick"
+gem "just-the-docs", "0.10.1" # If you're using Just the Docs theme
