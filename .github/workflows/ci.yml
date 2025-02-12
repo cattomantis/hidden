@@ -6,6 +6,7 @@ on:
   pull_request:
 
 jobs:
+  # Build job
   build:
     runs-on: ubuntu-latest
     defaults:
@@ -17,12 +18,12 @@ jobs:
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.3'
-          bundler-cache: true
-
-      - name: Install Dependencies
+          ruby-version: '3.3' # Not needed with a .ruby-version file
+          bundler-cache: true # runs 'bundle install' and caches installed gems automatically
+          cache-version: 0 # Increment this number if you need to re-download cached gems
+      - name: Install Jekyll
+        run: gem install jekyll
+      - name: Install dependencies
         run: bundle install
-
-      # 🚀 REMOVE Jekyll manual build step!
-      # - name: Build with Jekyll
-      #   run: bundle exec jekyll build
+      - name: Build with Jekyll
+        run: bundle exec jekyll build

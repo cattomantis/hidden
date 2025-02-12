@@ -1,4 +1,8 @@
 source 'https://rubygems.org'
 
-gem "github-pages", group: :jekyll_plugins # Use GitHub Pages' default Jekyll version
-gem "just-the-docs", "0.10.1" # Your theme
+gem "jekyll", "~> 4.4.1" # installed by `gem jekyll`
+gem "webrick"
+
+group :jekyll_plugins do
+    gem "just-the-docs", "0.10.1" # pinned to the current release
+end
