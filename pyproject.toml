@@ -18,7 +18,12 @@ lightning = "*"
 sentence_transformers = "*"
 ipykernel = "*"
 jupyter = "*"
-plotly = "*"  # Corrected plotly typo
+plotly = "*"
+plotly = "*"
+flash-attn = "*"
+model2vec = "*"
+semhash = "*"
+vllm = "*"
 
 [tool.poetry.dev-dependencies]
 docker = "^5.0"  # Optional, for handling Docker builds within Poetry if needed
