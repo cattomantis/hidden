@@ -1,0 +1,37 @@
+{"0": {
+    "doc": "Home",
+    "title": "Welcome to the Documentation",
+    "content": "This site documents our LLM project. Modify these pages using Jekyll to create and update your project documentation. ",
+    "url": "/hidden/#welcome-to-the-documentation",
+    
+    "relUrl": "/#welcome-to-the-documentation"
+  },"1": {
+    "doc": "Home",
+    "title": "Getting Started",
+    "content": ". | Run the project using Docker: docker-compose up --build . | View this documentation locally: docker-compose up docs . | . ",
+    "url": "/hidden/#getting-started",
+    
+    "relUrl": "/#getting-started"
+  },"2": {
+    "doc": "Home",
+    "title": "Features",
+    "content": ". | Uses Jekyll for clean documentation. | Supports GitHub Pages deployment. | Integrated with Docker for easy setup. | . ",
+    "url": "/hidden/#features",
+    
+    "relUrl": "/#features"
+  },"3": {
+    "doc": "Home",
+    "title": "License",
+    "content": "This project is licensed under the MIT License. ",
+    "url": "/hidden/#license",
+    
+    "relUrl": "/#license"
+  },"4": {
+    "doc": "Home",
+    "title": "Home",
+    "content": " ",
+    "url": "/hidden/",
+    
+    "relUrl": "/"
+  }
+}

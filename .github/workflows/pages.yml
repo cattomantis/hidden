@@ -1,5 +1,7 @@
 # This workflow uses actions that are not certified by GitHub.
-# They are provided by a third-party and are governed by a separate terms of service, privacy policy, and support documentation.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
 
 # Sample workflow for building and deploying a Jekyll site to GitHub Pages
 name: Deploy Jekyll site to Pages
@@ -40,6 +42,7 @@ jobs:
           ruby-version: '3.3' # Not needed with a .ruby-version file
           bundler-cache: true # runs 'bundle install' and caches installed gems automatically
           cache-version: 0 # Increment this number if you need to re-download cached gems
+          # working-directory: '${{ github.workspace }}/docs'
       - name: Install Jekyll
         run: gem install jekyll
       - name: Install dependencies

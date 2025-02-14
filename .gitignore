@@ -13,8 +13,5 @@ __pycache__/
 *.log
 docker-compose.override.yml
 
-# Jekyll build
-docs/_site/
-
 # OS files
 .DS_Store
