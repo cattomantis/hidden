@@ -1,14 +1,21 @@
-name: GitHub Pages
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+
+# Sample workflow for building and deploying a Jekyll site to GitHub Pages
+name: Deploy Jekyll site to Pages
 
 on:
   push:
-    branches:
-      - main
+    branches: ["main"]
     paths:
       - "docs/**"
-  
+
+  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
   contents: read
   pages: write
@@ -20,67 +27,41 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  # Build job
   build:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: docs
     steps:
-      - name: Checkout repository
+      - name: Checkout
         uses: actions/checkout@v4
-
-      - name: Set up Ruby
+      - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3'
-          bundler-cache: true
-          cachce-version: 0
-
-      - name: Install correct Bundler version
-        run: gem install bundler:2.5.9
-
-      - name: Set Gemfile path
-        run: echo "BUNDLE_GEMFILE=${{ github.workspace }}/docs/Gemfile" >> $GITHUB_ENV
-
-      - name: Install Jekyll version 4.4.1
-        run: gem install jekyll -v 4.4.1
-        
-      - name: Install Jekyll version 4.3.2
-        run: gem install jekyll -v 4.3.2
-
+          ruby-version: '3.3' # Not needed with a .ruby-version file
+          bundler-cache: true # runs 'bundle install' and caches installed gems automatically
+          cache-version: 0 # Increment this number if you need to re-download cached gems
+          # working-directory: '${{ github.workspace }}/docs'
+      - name: Install Jekyll
+        run: gem install jekyll
       - name: Install dependencies
-        working-directory: docs
-        run: bundle install --jobs 4 --retry 3
-
+        run: bundle install
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
-
-      - name: Build site with Jekyll
-        working-directory: docs
-        run: bundle exec jekyll build
+      - name: Build with Jekyll
+        # Outputs to the './_site' directory by default
+        run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
         env:
           JEKYLL_ENV: production
-
-      - name: Upload artifact for deployment
-        uses: actions/upload-artifact@v4
+      - name: Upload artifact
+        # Automatically uploads an artifact from the './_site' directory by default
+        uses: actions/upload-pages-artifact@v3
         with:
-          name: github-pages
-          path: docs/_site
+          path: "docs/_site/"
 
-  # deploy:
-  #   needs: build
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Download artifact
-  #       uses: actions/download-artifact@v4
-  #       with:
-  #         name: github-pages
-
-  #     - name: Deploy to GitHub Pages
-  #       id: deploy-pages
-  #       uses: actions/deploy-pages@v4
-  #       with:
-  #         token: ${{ secrets.GITHUB_TOKEN }}
-
-
+  # Deployment job
   deploy:
     environment:
       name: github-pages
