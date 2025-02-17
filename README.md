@@ -15,21 +15,10 @@ This repository provides a template for LLM-based projects with:
 
 1. Clone the repository:
    ```sh
-   git clone --recurse-submodules <repository_url>
+   git clone --recurse-submodules https://github.com/cattomantis/hidden.git
    ```
 
-2. Install dependencies using poetry:
+2. Build Docker Container:
    ```sh
-   poetry install
+   docker compose up experiments -d
    ```
-
-3. Run the app:
-   ```sh
-   poetry run python src/app.py
-   ```
-
-4. Run Documentation Locally
-   ```sh
-   poetry run jekyll serve
-   ```
-
