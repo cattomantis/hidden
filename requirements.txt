@@ -1,0 +1,16 @@
+huggingface-hub
+transformers
+bitsandbytes
+accelerate
+peft
+datasets
+pytorch-metric-learning
+lightning
+sentence-transformers
+ipykernel
+jupyter
+plotly
+flash-attn
+model2vec
+semhash
+vllm
