@@ -1,6 +1,12 @@
 version: '3'
 name: meow-project  # Changed project name here
 
+
+volumes:
+  app_data:
+  vscode-server:
+  cache:
+
 services:
   app:
     build: .
@@ -36,14 +42,23 @@ services:
       - "4000:4000"
     command: ["jekyll", "serve", "--watch", "--drafts"]
 
-volumes:
-  app_data:
-    driver: local
-
-deploy:
-  resources:
-    reservations:
-      devices:
-        - driver: nvidia
-          count: all
-          capabilities: [ gpu ]
+  experiments:
+    build:
+      context: .
+      dockerfile: expts.dockerfile
+    entrypoint: "bash"
+    tty: true
+    volumes:
+      - app_data:/app/data
+      - vscode-server:/root/.vscode-server
+      - cache:/root/.cache/
+    environment:
+      - "HF_HOME=/app/.cache"
+      - "HF_TOKEN=${HF_TOKEN}"
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [ gpu ]
